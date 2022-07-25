@@ -1,4 +1,14 @@
 <app-header></app-header>
 <main>
-    <app-main-map></app-main-map>
+    <div class="row g-3 mx-4 my-2">
+        <div class="col-6">
+            <app-places-select (coorsSelected)="coordHandler($event)"></app-places-select>
+        </div>
+        <div class="col-6 d-flex justify-content-end ">
+            <input type="text" class="form-control me-2" placeholder="Busca una ciudad..." aria-label="Last name">
+            <button class="btn btn-primary" type="button">Search</button>
+        </div>
+
+    </div>
+    <app-main-map [LAT]="latitudSelected" [LOG]="longitudSelected"></app-main-map>
 </main>
