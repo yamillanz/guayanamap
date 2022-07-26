@@ -10,7 +10,7 @@ import { DataMapService } from 'src/app/services/data-map/data-map.service';
 export class HomeComponent implements OnInit {
   latitudSelected: number = 0;
   longitudSelected: number = 0;
-  dataPlace: Observable<any> = new Observable();
+  dataPlace$: Observable<{}> = new Observable();
 
   constructor(private mapService: DataMapService) {}
 
@@ -18,10 +18,12 @@ export class HomeComponent implements OnInit {
 
   coordHandler(event: any) {
     console.log(event);
-    this.mapService.getInfoFromNominaTim(event).subscribe((data) => {
-      const { geojson, ...restData } = data[0];
-      console.log(restData);
-    });
+    this.dataPlace$ = this.mapService.getInfoFromNominaTim(event);
+    // this.mapService.getInfoFromNominaTim(event).subscribe((data) => {
+    // const { geojson, ...restData } = data[0];
+    // console.log(restData);
+    // console.log(data);
+    // });
     // this.latitudSelected = event[0];
     // this.longitudSelected = event[1];
   }

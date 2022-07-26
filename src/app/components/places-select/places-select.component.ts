@@ -37,8 +37,8 @@ export class PlacesSelectComponent implements OnInit {
 
   select_ciudad(event: any) {
     // console.log('valor', event.value);
-    const coord = (event.value as string).split(',');
-    const coordNumbers = coord.map((coor) => parseFloat(coor));
+    // const coord = (event.value as string).split(',');
+    // const coordNumbers = coord.map((coor) => parseFloat(coor));
     this.coorsSelected.emit(event.value);
     // console.log('tranas', this.coorsSelected);
   }

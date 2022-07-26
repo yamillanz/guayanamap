@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { MainMapComponent } from './components/main-map/main-map.component';
 import { PlacesSelectComponent } from './components/places-select/places-select.component';
+import { PlacesDetailsComponent } from './components/places-details/places-details.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { PlacesSelectComponent } from './components/places-select/places-select.
     HeaderComponent,
     MainMapComponent,
     PlacesSelectComponent,
+    PlacesDetailsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
