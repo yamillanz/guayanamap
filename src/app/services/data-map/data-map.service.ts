@@ -12,13 +12,26 @@ export class DataMapService {
   getInfoFromNominaTim(criteria: string): Observable<any> {
     return this.http
       .get<Observable<any>>(
-        environment.URL_NOMINATIM + criteria + environment.ADITTIONAL_PARAMS
+        environment.URL_NOMINATIM + criteria + environment.ADDITIONAL_PARAMS
       )
       .pipe(
         first(),
         map((data: any) => {
           const { geojson, ...restData } = data[0];
           return restData;
+        })
+      );
+  }
+  getInfoFromOverpass(criteria: string): Observable<any> {
+    return this.http
+      .get<Observable<any>>(
+        environment.URL_OVERPASS + criteria + environment.ADDITIONAL_OVER
+      )
+      .pipe(
+        first(),
+        map((data: any) => {
+          const cleanData = data['elements'][0];
+          return cleanData;
         })
       );
   }

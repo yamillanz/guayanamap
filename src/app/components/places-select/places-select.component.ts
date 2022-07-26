@@ -28,10 +28,14 @@ export class PlacesSelectComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    // this.cities = [
+    //   { name: 'Caracas', criteria: 'Caracas' },
+    //   { name: 'Puerto Ordaz', criteria: 'Puerto Ordaz' },
+    //   { name: 'Margarita', criteria: 'Margarita' },
+    // ];
     this.cities = [
-      { name: 'Caracas', criteria: 'Caracas' },
-      { name: 'Puerto Ordaz', criteria: 'Puerto Ordaz' },
-      { name: 'Margarita', criteria: 'Margarita' },
+      { name: 'Salto la Llovizna', criteria: 'llovizna' },
+      { name: 'Rio Caroni', criteria: 'Puerto Ordaz' },
     ];
   }
 
