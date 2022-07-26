@@ -68,27 +68,27 @@ export class MainMapComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   constructor() {}
+
   ngOnChanges(changes: SimpleChanges): void {
-    const changesCity =
-      changes['LAT'] && changes['LOG'] && !changes['LAT'].firstChange;
-    if (changesCity) {
-      console.log(changes['LAT']);
-      this.map.setView(
-        new L.LatLng(changes['LAT'].currentValue, changes['LOG'].currentValue),
-        DEFAULT_ZOOM,
-        {
-          animate: true,
-        }
-      );
-      // this.map.fitBounds(new L.LatLng(40.737, -73.923).toBounds(DEFAULT_ZOOM), {
-      //   animate: true,
-      // });
-    }
+    // const changesCity =
+    //   changes['LAT'] && changes['LOG'] && !changes['LAT'].firstChange;
+    // if (changesCity) {
+    //   console.log(changes['LAT']);
+    //   this.map.setView(
+    //     new L.LatLng(changes['LAT'].currentValue, changes['LOG'].currentValue),
+    //     DEFAULT_ZOOM,
+    //     {
+    //       animate: true,
+    //     }
+    //   );
+    // }
+
+
   }
 
   ngAfterViewInit(): void {
     this.initMap();
-    console.log('coorde', this.LAT, this.LOG);
+    // console.log('coorde', this.LAT, this.LOG);
   }
 
   ngOnInit(): void {

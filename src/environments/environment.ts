@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   URL_NOMINATIM: 'https://nominatim.openstreetmap.org/search?q=',
+  ADITTIONAL_PARAMS: '&format=json&polygon_geojson=1&addressdetails=1',
   URL_OVERPASS:
     'https://www.overpass-api.de/api/interpreter?data=[out:json][timeout:60];',
 };

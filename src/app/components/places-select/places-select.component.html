@@ -1,7 +1,7 @@
 <select #ciudad (change)="select_ciudad(this.ciudad)" class="form-select" aria-label="Selecciona la ciudad..."
     aria-placeholder="Selecciona la ciudad..." style="width: 100%;">
     <option disabled selected hidden>Seleccione un lugar...</option>
-    <option *ngFor="let city of cities" value="{{city.coordinates}}">{{city.name}}</option>
+    <option *ngFor="let city of cities" value="{{city.criteria}}">{{city.name}}</option>
     <!-- <option value="10.491,-66.902">Caracas</option>
     <option value="8.29806,-62.71861">Puerto Ordaz</option>
     <option value="8.29806,-62.71861">Ciudad Guayana</option> -->
