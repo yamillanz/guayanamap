@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  URL_NOMINATIM: 'https://nominatim.openstreetmap.org/search?q=',
+  URL_OVERPASS:
+    'https://www.overpass-api.de/api/interpreter?data=[out:json][timeout:60];',
 };
 
 /*
