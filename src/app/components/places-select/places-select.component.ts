@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Observable, tap } from 'rxjs';
 import { FavoritesService } from 'src/app/services/favorites/favorites.service';
 
-interface City {
+interface Place {
   name: string;
   coordinates?: string;
   criteria?: string;
@@ -14,31 +15,33 @@ interface City {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PlacesSelectComponent implements OnInit {
-  cities: City[] = [];
+  places: Place[] = [];
+  places$: Observable<Place[]> = new Observable<Place[]>();
 
-  // @Output() coorsSelected: EventEmitter<number[]> = new EventEmitter<
-  //   number[]
-  // >();
   @Output() coorsSelected: EventEmitter<string> = new EventEmitter<string>();
   constructor(private favoritesServices: FavoritesService) {}
 
+  getDataFavorites() {
+    this.places$ = this.favoritesServices.getFavorites().pipe(
+      tap((data) => {
+        console.log('places', data);
+        this.places = data;
+      })
+    );
+  }
+
   ngOnInit(): void {
-    // this.cities = [
-    //   { name: 'Caracas', criteria: 'Caracas' },
-    //   { name: 'Puerto Ordaz', criteria: 'Puerto Ordaz' },
-    //   { name: 'Margarita', criteria: 'Margarita' },
-    // ];
-    this.cities = [
-      { name: 'Salto la Llovizna', criteria: 'llovizna' },
-      { name: 'Rio Caroni', criteria: 'caroni' },
-    ];
-    // this.favoritesServices.saveFavorites(this.cities[1]).subscribe();
+    this.getDataFavorites();
+  }
+
+  addFavorite($e: any, favorite: any) {
+    // console.log($e.target);
+    $e.preventDefault();
+    console.log('text', favorite.value, favorite);
+    favorite.value = '';
   }
 
   select_ciudad(event: any) {
-    // console.log('valor', event.value);
-    // const coord = (event.value as string).split(',');
-    // const coordNumbers = coord.map((coor) => parseFloat(coor));
     this.coorsSelected.emit(event.value);
     // console.log('tranas', this.coorsSelected);
   }
