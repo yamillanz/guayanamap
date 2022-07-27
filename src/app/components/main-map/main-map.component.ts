@@ -61,7 +61,7 @@ export class MainMapComponent implements OnInit, AfterViewInit, OnChanges {
     if (changesCity) {
       console.log('mapa', changes['LAT']);
       const placeLT = new L.LatLng(changes['LAT'].currentValue, changes['LOG'].currentValue);
-      this.map.setView(placeLT, DEFAULT_ZOOM + PLUS_ZOOM * 1.25, {
+      this.map.setView(placeLT, DEFAULT_ZOOM + PLUS_ZOOM * 1.20, {
         animate: true,
       });
       L.marker(placeLT).addTo(this.map);

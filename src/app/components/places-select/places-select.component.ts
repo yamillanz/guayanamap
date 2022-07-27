@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { firstValueFrom, Observable, tap } from 'rxjs';
 import { FavoritesService } from 'src/app/services/favorites/favorites.service';
 
 interface Place {
@@ -34,11 +34,13 @@ export class PlacesSelectComponent implements OnInit {
     this.getDataFavorites();
   }
 
-  addFavorite($e: any, favorite: any) {
-    // console.log($e.target);
+  async addFavorite($e: any, favorite: any) {
     $e.preventDefault();
-    console.log('text', favorite.value, favorite);
+    const newFavorite: Place = { name: favorite.value, criteria: favorite.value };
     favorite.value = '';
+    this.places.push(newFavorite);
+    // console.log(this.places);
+    await firstValueFrom(this.favoritesServices.saveFavorites(this.places));
   }
 
   select_ciudad(event: any) {

@@ -1,4 +1,4 @@
-GET https://www.overpass-api.de/api/interpreter?data=[out:json][bbox:8.091660, -62.945233, 8.464149, -62.632713];node[!"bus"][!"shop"][!"place"][!"parking"]["name"~"caroni", i];out body;
+GET https://z.overpass-api.de/api/interpreter?data=[out:json][bbox:8.091660, -62.945233, 8.464149, -62.632713];node[!"bus"][!"shop"][!"place"][!"parking"][!"barrier"]["name"~"orinokia", i];out body;
 
 ### Alemania
 GET https://lz4.overpass-api.de/api/interpreter?data=[out:json][bbox];node[amenity=post_box];out;&bbox=7.0,50.6,7.3,50.8
