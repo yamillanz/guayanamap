@@ -1,19 +1,22 @@
+<!-- {{data | json}} -->
 <ng-container *ngIf="data; else elseBlock">
     <div class="card" style="max-width: 100%;">
         <div class="card-header" style="max-width: 100%;">Detalle</div>
         <div class="card-body">
             <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    {{data?.display_name}}
-                    <!-- <span class="badge bg-primary rounded-pill">14</span> -->
+                    {{data?.tags?.name ?? ''}}
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
+                <li *ngFor="let tag of tagsValues"
+                    class="list-group-item d-flex justify-content-between align-items-center">
+                    {{tag}}
+                </li>
+                <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
                     {{data?.address?.country}}
-
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <img src="{{data?.icon}}" alt="" width="50rem">
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>

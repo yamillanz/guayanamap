@@ -35,7 +35,7 @@ export class PlacesSelectComponent implements OnInit {
     // ];
     this.cities = [
       { name: 'Salto la Llovizna', criteria: 'llovizna' },
-      { name: 'Rio Caroni', criteria: 'Puerto Ordaz' },
+      { name: 'Rio Caroni', criteria: 'caroni' },
     ];
   }
 

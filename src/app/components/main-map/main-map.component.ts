@@ -1,19 +1,13 @@
-import {
-  AfterViewInit,
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import * as L from 'leaflet';
 
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
 const shadowUrl = 'assets/marker-shadow.png';
-const DEFAULT_LAT: number = 51.5072;
-const DEFAULT_LOG: number = -0.1275;
-const DEFAULT_ZOOM: number = 12;
+const DEFAULT_LAT: number = 8.29067;
+const DEFAULT_LOG: number = -62.652159;
+const DEFAULT_ZOOM: number = 10;
+const PLUS_ZOOM: number = 4;
 
 @Component({
   selector: 'app-main-map',
@@ -46,44 +40,32 @@ export class MainMapComponent implements OnInit, AfterViewInit, OnChanges {
     });
     L.Marker.prototype.options.icon = iconDefault;
 
-    const tiles = L.tileLayer(
-      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      {
-        maxZoom: 18,
-        minZoom: 10,
-        attribution:
-          '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      }
-    );
+    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      minZoom: 10,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    });
     tiles.addTo(this.map);
 
-    Array(5)
-      .fill(this.centroid)
-      .map((x) => [
-        x[0] + (Math.random() - 0.5) / 10,
-        x[1] + (Math.random() - 0.5) / 10,
-      ])
-      .map((x) => L.marker(x as L.LatLngExpression))
-      .forEach((x) => x.addTo(this.map));
+    // Array(5)
+    //   .fill(this.centroid)
+    //   .map((x) => [x[0] + (Math.random() - 0.5) / 10, x[1] + (Math.random() - 0.5) / 10])
+    //   .map((x) => L.marker(x as L.LatLngExpression))
+    //   .forEach((x) => x.addTo(this.map));
   }
 
   constructor() {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    // const changesCity =
-    //   changes['LAT'] && changes['LOG'] && !changes['LAT'].firstChange;
-    // if (changesCity) {
-    //   console.log(changes['LAT']);
-    //   this.map.setView(
-    //     new L.LatLng(changes['LAT'].currentValue, changes['LOG'].currentValue),
-    //     DEFAULT_ZOOM,
-    //     {
-    //       animate: true,
-    //     }
-    //   );
-    // }
-
-
+    const changesCity = changes['LAT'] && changes['LOG'] && !changes['LAT'].firstChange;
+    if (changesCity) {
+      console.log('mapa', changes['LAT']);
+      const placeLT = new L.LatLng(changes['LAT'].currentValue, changes['LOG'].currentValue);
+      this.map.setView(placeLT, DEFAULT_ZOOM + PLUS_ZOOM * 1.25, {
+        animate: true,
+      });
+      L.marker(placeLT).addTo(this.map);
+    }
   }
 
   ngAfterViewInit(): void {

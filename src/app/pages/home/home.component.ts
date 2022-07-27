@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   latitudSelected: number = 0;
   longitudSelected: number = 0;
   dataPlace$: Observable<{}> = new Observable();
+  dataPush: Object | undefined;
 
   constructor(private mapService: DataMapService) {}
 
@@ -18,17 +19,24 @@ export class HomeComponent implements OnInit {
 
   coordHandler(event: any) {
     console.log(event);
-    // this.dataPlace$ = this.mapService.getInfoFromNominaTim(event);
+    // this.dataPlace$ = this.mapService.getInfoFromOverpass(event);
+    this.mapService.getInfoFromOverpass(event).subscribe((data: any) => {
+      const { lat, lon } = data;
+      this.dataPush = { ...data };
+      console.log('data', lat, lon);
+      this.latitudSelected = lat;
+      this.longitudSelected = lon;
+    });
     // this.mapService.getInfoFromNominaTim(event).subscribe((data) => {
     // const { geojson, ...restData } = data[0];
     // console.log(restData);
     // console.log(data);
     // });
-    this.mapService.getInfoFromOverpass(event).subscribe((data) => {
-      // const { geojson, ...restData } = data[0];
-      // console.log(restData);
-      console.log(data);
-    });
+    // this.mapService.getInfoFromOverpass(event).subscribe((data) => {
+    // const { geojson, ...restData } = data[0];
+    // console.log(restData);
+    // console.log(data);
+    // });
 
     // this.latitudSelected = event[0];
     // this.longitudSelected = event[1];
