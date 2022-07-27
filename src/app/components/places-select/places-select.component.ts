@@ -1,10 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FavoritesService } from 'src/app/services/favorites/favorites.service';
 
 interface City {
   name: string;
@@ -25,7 +20,7 @@ export class PlacesSelectComponent implements OnInit {
   //   number[]
   // >();
   @Output() coorsSelected: EventEmitter<string> = new EventEmitter<string>();
-  constructor() {}
+  constructor(private favoritesServices: FavoritesService) {}
 
   ngOnInit(): void {
     // this.cities = [
@@ -37,6 +32,7 @@ export class PlacesSelectComponent implements OnInit {
       { name: 'Salto la Llovizna', criteria: 'llovizna' },
       { name: 'Rio Caroni', criteria: 'caroni' },
     ];
+    // this.favoritesServices.saveFavorites(this.cities[1]).subscribe();
   }
 
   select_ciudad(event: any) {

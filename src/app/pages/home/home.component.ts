@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
 
   coordHandler(event: any) {
-    console.log(event);
     // this.dataPlace$ = this.mapService.getInfoFromOverpass(event);
     this.mapService.getInfoFromOverpass(event).subscribe((data: any) => {
       const { lat, lon } = data;
