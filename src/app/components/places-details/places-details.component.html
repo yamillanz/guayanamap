@@ -1,4 +1,3 @@
-<!-- {{data | json}} -->
 <ng-container *ngIf="data; else elseBlock">
     <div class="card" style="max-width: 100%;">
         <div class="card-header" style="max-width: 100%;">Detalle</div>
@@ -11,14 +10,11 @@
                     class="list-group-item d-flex justify-content-between align-items-center">
                     {{tag}}
                 </li>
-                <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
-                    {{data?.address?.country}}
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <img src="{{data?.icon}}" alt="" width="50rem">
-                </li> -->
             </ul>
         </div>
     </div>
 </ng-container>
-<ng-template #elseBlock>No data</ng-template>
+<ng-template #elseBlock>
+    No data for the place
+    <span class="visually-hidden-focusable">No data for the place</span>
+</ng-template>

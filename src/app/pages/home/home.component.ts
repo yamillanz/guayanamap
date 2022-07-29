@@ -26,18 +26,5 @@ export class HomeComponent implements OnInit {
       this.latitudSelected = lat;
       this.longitudSelected = lon;
     });
-    // this.mapService.getInfoFromNominaTim(event).subscribe((data) => {
-    // const { geojson, ...restData } = data[0];
-    // console.log(restData);
-    // console.log(data);
-    // });
-    // this.mapService.getInfoFromOverpass(event).subscribe((data) => {
-    // const { geojson, ...restData } = data[0];
-    // console.log(restData);
-    // console.log(data);
-    // });
-
-    // this.latitudSelected = event[0];
-    // this.longitudSelected = event[1];
   }
 }
