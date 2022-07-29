@@ -17,12 +17,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * function to handler the changes when choice a place
+   * @param event the search criteria
+   */
   coordHandler(event: any) {
     // this.dataPlace$ = this.mapService.getInfoFromOverpass(event);
     this.mapService.getInfoFromOverpass(event).subscribe((data: any) => {
       const { lat, lon } = data;
       this.dataPush = { ...data };
-      console.log('data', lat, lon);
       this.latitudSelected = lat;
       this.longitudSelected = lon;
     });
