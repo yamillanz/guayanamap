@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { firstValueFrom, Observable, tap } from 'rxjs';
 import { FavoritesService } from 'src/app/services/favorites/favorites.service';
+import { DataMapService } from 'src/app/services/data-map/data-map.service';
 
 interface Place {
   name: string;
@@ -19,12 +20,15 @@ export class PlacesSelectComponent implements OnInit {
   places$: Observable<Place[]> = new Observable<Place[]>();
 
   @Output() coorsSelected: EventEmitter<string> = new EventEmitter<string>();
-  constructor(private favoritesServices: FavoritesService) {}
+  constructor(
+    private favoritesServices: FavoritesService,
+    private mapaService: DataMapService,
+    private cd: ChangeDetectorRef
+  ) {}
 
   getDataFavorites() {
     this.places$ = this.favoritesServices.getFavorites().pipe(
       tap((data) => {
-        console.log('places', data);
         this.places = data;
       })
     );
@@ -36,11 +40,19 @@ export class PlacesSelectComponent implements OnInit {
 
   async addFavorite($e: any, favorite: any) {
     $e.preventDefault();
-    const newFavorite: Place = { name: favorite.value, criteria: favorite.value };
-    favorite.value = '';
-    this.places.push(newFavorite);
-    // console.log(this.places);
-    await firstValueFrom(this.favoritesServices.saveFavorites(this.places));
+    if (favorite.value) {
+      const place: string = favorite.value;
+      favorite.value = '';
+      const favoriteValid = await firstValueFrom(this.mapaService.getInfoFromOverpass(place));
+      // console.log('valido consulta', favoriteValid);
+      if (favoriteValid) {
+        const newFavorite: Place = { name: place, criteria: place };
+        this.places.push(newFavorite);
+        // console.log(this.places);
+        await firstValueFrom(this.favoritesServices.saveFavorites(this.places));
+        this.cd.detectChanges();
+      }
+    }
   }
 
   select_ciudad(event: any) {
