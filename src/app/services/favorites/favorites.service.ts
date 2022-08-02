@@ -32,9 +32,6 @@ export class FavoritesService {
   getDataFavorites(): Observable<Place[]> {
     const mycollection: any = collection(this.firestore, 'places');
     return collectionData(mycollection);
-    // let item$: Observable<Place[]>;
-    // item$ = collectionData(mycollection);
-    // item$.subscribe((data) => console.log('data', data));
   }
 
   create(place: Place) {
