@@ -36,7 +36,6 @@ export class PlacesSelectComponent implements OnInit {
 
   async ngOnInit() {
     this.getDataFavorites();
-    // this.favoritesServices.getDataFavorites();
   }
 
   async addFavorite($e: any, favorite: any) {
@@ -59,6 +58,5 @@ export class PlacesSelectComponent implements OnInit {
 
   select_ciudad(event: any) {
     this.coorsSelected.emit(event.value);
-    // console.log('tranas', this.coorsSelected);
   }
 }
