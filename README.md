@@ -4,7 +4,7 @@ Aplicación que busca lugares de interés de la ciudad de Guayana en Venezuela. 
 Ejemplos de sitios que puedes agregar:
 - Cachamay
 - Orinokia
-- Guri
+- Playa Colorada
 
 
 Fue desarrollado con Angular 13 y necesitas tener instalado previamente:
