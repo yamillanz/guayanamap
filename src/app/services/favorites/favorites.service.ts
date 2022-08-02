@@ -10,31 +10,42 @@ import {
   DocumentData,
   addDoc,
 } from '@angular/fire/firestore';
+
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+
 import Place from 'src/app/components/places-select/models/place';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FavoritesService {
-  private placeCollection: CollectionReference<DocumentData>;
+  // private placeCollection: CollectionReference<DocumentData>;
 
-  constructor(private http: HttpClient, private firestore: Firestore) {
-    this.placeCollection = collection(this.firestore, 'places');
+  constructor(
+    private http: HttpClient,
+    // private firestore: Firestore,
+    private db: AngularFireDatabase
+  ) {
+    // this.placeCollection = collection(this.firestore, 'places');
   }
 
   getFavorites(): Observable<any> {
-    return this.http.get(environment.URL_fAVORITES);
-  }
-  saveFavorites(data: any) {
-    return this.http.put(environment.URL_fAVORITES, data);
+    // return this.http.get(environment.URL_fAVORITES);
+    return this.db.list('places').valueChanges();
   }
 
-  getDataFavorites(): Observable<Place[]> {
-    const mycollection: any = collection(this.firestore, 'places');
-    return collectionData(mycollection);
+  async saveFavorites(data: Place[]) {
+    const itemRef = this.db.object('places');
+    await itemRef.set(data);
+    // return this.http.put(environment.URL_fAVORITES, data);
   }
 
-  create(place: Place) {
-    return addDoc(this.placeCollection, place);
-  }
+  // getDataFavorites(): Observable<Place[]> {
+  //   const mycollection: any = collection(this.firestore, 'places');
+  //   return collectionData(mycollection);
+  // }
+
+  // create(place: Place) {
+  //   return addDoc(this.placeCollection, place);
+  // }
 }

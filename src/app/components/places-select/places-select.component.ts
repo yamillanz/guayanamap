@@ -22,16 +22,18 @@ export class PlacesSelectComponent implements OnInit {
   ) {}
 
   getDataFavorites() {
-    // this.places$ = this.favoritesServices.getFavorites().pipe(
-    //   tap((data) => {
-    //     this.places = data;
-    //   })
-    // );
-    this.places$ = this.favoritesServices.getDataFavorites();
+    this.places$ = this.favoritesServices.getFavorites().pipe(
+      tap((data) => {
+        console.log('data bd', data);
+        this.places = data;
+      })
+    );
+    // this.places$ = this.favoritesServices.getDataFavorites();
   }
 
   async ngOnInit() {
     this.getDataFavorites();
+    // this.favoritesServices.saveFavorites([{ name: 'Llovizna', criteria: 'Llovizna' }]);
     // await this.favoritesServices.create({ name: 'Llovizna', criteria: 'Llovizna' });
   }
 
@@ -45,9 +47,10 @@ export class PlacesSelectComponent implements OnInit {
       if (favoriteValid) {
         const newFavorite: Place = { name: place, criteria: place };
         this.places.push(newFavorite);
+        this.favoritesServices.saveFavorites(this.places);
         // console.log(this.places);
         // await firstValueFrom(this.favoritesServices.saveFavorites(this.places));
-        await this.favoritesServices.create(newFavorite);
+        // await this.favoritesServices.create(newFavorite);
         this.cd.detectChanges();
       }
     }
