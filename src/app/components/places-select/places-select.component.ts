@@ -27,11 +27,7 @@ export class PlacesSelectComponent implements OnInit {
     //     this.places = data;
     //   })
     // );
-    this.places$ = this.favoritesServices.getDataFavorites().pipe(
-      tap((data) => {
-        this.places = [...data];
-      })
-    );
+    this.places$ = this.favoritesServices.getDataFavorites();
   }
 
   async ngOnInit() {
