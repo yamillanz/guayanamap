@@ -32,6 +32,7 @@ export class PlacesSelectComponent implements OnInit {
 
   async ngOnInit() {
     this.getDataFavorites();
+    // await this.favoritesServices.create({ name: 'Llovizna', criteria: 'Llovizna' });
   }
 
   async addFavorite($e: any, favorite: any) {
