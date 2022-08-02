@@ -19,33 +19,14 @@ import Place from 'src/app/components/places-select/models/place';
   providedIn: 'root',
 })
 export class FavoritesService {
-  // private placeCollection: CollectionReference<DocumentData>;
-
-  constructor(
-    private http: HttpClient,
-    // private firestore: Firestore,
-    private db: AngularFireDatabase
-  ) {
-    // this.placeCollection = collection(this.firestore, 'places');
-  }
+  constructor(private http: HttpClient, private db: AngularFireDatabase) {}
 
   getFavorites(): Observable<any> {
-    // return this.http.get(environment.URL_fAVORITES);
     return this.db.list('places').valueChanges();
   }
 
   async saveFavorites(data: Place[]) {
     const itemRef = this.db.object('places');
     await itemRef.set(data);
-    // return this.http.put(environment.URL_fAVORITES, data);
   }
-
-  // getDataFavorites(): Observable<Place[]> {
-  //   const mycollection: any = collection(this.firestore, 'places');
-  //   return collectionData(mycollection);
-  // }
-
-  // create(place: Place) {
-  //   return addDoc(this.placeCollection, place);
-  // }
 }

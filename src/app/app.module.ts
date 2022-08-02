@@ -9,8 +9,6 @@ import { HeaderComponent } from './shared/header/header.component';
 import { MainMapComponent } from './components/main-map/main-map.component';
 import { PlacesSelectComponent } from './components/places-select/places-select.component';
 import { PlacesDetailsComponent } from './components/places-details/places-details.component';
-// import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
-// import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 
@@ -28,8 +26,6 @@ import { environment } from 'src/environments/environment';
     AppRoutingModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    // provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    // provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent],
