@@ -2,12 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, On
 import { firstValueFrom, Observable, tap } from 'rxjs';
 import { FavoritesService } from 'src/app/services/favorites/favorites.service';
 import { DataMapService } from 'src/app/services/data-map/data-map.service';
-
-interface Place {
-  name: string;
-  coordinates?: string;
-  criteria?: string;
-}
+import Place from './models/place';
 
 @Component({
   selector: 'app-places-select',
@@ -27,15 +22,21 @@ export class PlacesSelectComponent implements OnInit {
   ) {}
 
   getDataFavorites() {
-    this.places$ = this.favoritesServices.getFavorites().pipe(
+    // this.places$ = this.favoritesServices.getFavorites().pipe(
+    //   tap((data) => {
+    //     this.places = data;
+    //   })
+    // );
+    this.places$ = this.favoritesServices.getDataFavorites().pipe(
       tap((data) => {
-        this.places = data;
+        this.places = [...data];
       })
     );
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.getDataFavorites();
+    // this.favoritesServices.getDataFavorites();
   }
 
   async addFavorite($e: any, favorite: any) {
@@ -49,7 +50,8 @@ export class PlacesSelectComponent implements OnInit {
         const newFavorite: Place = { name: place, criteria: place };
         this.places.push(newFavorite);
         // console.log(this.places);
-        await firstValueFrom(this.favoritesServices.saveFavorites(this.places));
+        // await firstValueFrom(this.favoritesServices.saveFavorites(this.places));
+        await this.favoritesServices.create(newFavorite);
         this.cd.detectChanges();
       }
     }

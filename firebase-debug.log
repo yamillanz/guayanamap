@@ -1,0 +1,52 @@
+[debug] [2022-08-01T18:13:33.223Z] ----------------------------------------------------------------------
+[debug] [2022-08-01T18:13:33.225Z] Command:       /home/yamil/.nvm/versions/node/v16.16.0/bin/node /home/yamil/.nvm/versions/node/v16.16.0/bin/firebase login:ci --no-localhost
+[debug] [2022-08-01T18:13:33.225Z] CLI Version:   11.4.1
+[debug] [2022-08-01T18:13:33.225Z] Platform:      linux
+[debug] [2022-08-01T18:13:33.225Z] Node Version:  v16.16.0
+[debug] [2022-08-01T18:13:33.225Z] Time:          Mon Aug 01 2022 14:13:33 GMT-0400 (Venezuela Time)
+[debug] [2022-08-01T18:13:33.225Z] ----------------------------------------------------------------------
+[debug] 
+[warn] ⚠  Authenticating with a `login:ci` token is deprecated and will be removed in a future major version of `firebase-tools`. Instead, use a service account key with `GOOGLE_APPLICATION_CREDENTIALS`: https://cloud.google.com/docs/authentication/getting-started 
+[debug] [2022-08-01T18:13:33.267Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
+[debug] [2022-08-01T18:13:33.268Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"2114ff3a-da82-4ff9-a23f-cb8b557808bb"}
+[debug] [2022-08-01T18:13:33.682Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
+[debug] [2022-08-01T18:13:33.683Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"9E_qa3Vh-DgLCwOKb6rMsPO88CEoSrLg_PaWFfbdFgs"}
+[info] 
+[info] To sign in to the Firebase CLI:
+[info] 
+[info] 1. Take note of your session ID:
+[info] 
+[info]    2114F
+[info] 
+[info] 2. Visit the URL below on any device and follow the instructions to get your code:
+[info] 
+[info]    https://auth.firebase.tools/login?code_challenge=5AX-cD-I7jHoOjefwF9VeuNoqSO__Yav9PGXPOhBylw&session=2114ff3a-da82-4ff9-a23f-cb8b557808bb&attest=9E_qa3Vh-DgLCwOKb6rMsPO88CEoSrLg_PaWFfbdFgs
+[info] 
+[info] 3. Paste or enter the authorization code below once you have it:
+[info] 
+[debug] [2022-08-01T18:14:36.472Z] ----------------------------------------------------------------------
+[debug] [2022-08-01T18:14:36.473Z] Command:       /home/yamil/.nvm/versions/node/v16.16.0/bin/node /home/yamil/.nvm/versions/node/v16.16.0/bin/firebase login:ci --no-localhost
+[debug] [2022-08-01T18:14:36.474Z] CLI Version:   11.4.1
+[debug] [2022-08-01T18:14:36.474Z] Platform:      linux
+[debug] [2022-08-01T18:14:36.474Z] Node Version:  v16.16.0
+[debug] [2022-08-01T18:14:36.474Z] Time:          Mon Aug 01 2022 14:14:36 GMT-0400 (Venezuela Time)
+[debug] [2022-08-01T18:14:36.474Z] ----------------------------------------------------------------------
+[debug] 
+[warn] ⚠  Authenticating with a `login:ci` token is deprecated and will be removed in a future major version of `firebase-tools`. Instead, use a service account key with `GOOGLE_APPLICATION_CREDENTIALS`: https://cloud.google.com/docs/authentication/getting-started 
+[debug] [2022-08-01T18:14:36.512Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
+[debug] [2022-08-01T18:14:36.512Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"2ffd6152-f5e4-43ff-a567-1e51f44fcb55"}
+[debug] [2022-08-01T18:14:37.058Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
+[debug] [2022-08-01T18:14:37.058Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"5OalU8Ax4KJiNko9KOcAwPyjrZXmNVTqR3UCUm5vBJk"}
+[info] 
+[info] To sign in to the Firebase CLI:
+[info] 
+[info] 1. Take note of your session ID:
+[info] 
+[info]    2FFD6
+[info] 
+[info] 2. Visit the URL below on any device and follow the instructions to get your code:
+[info] 
+[info]    https://auth.firebase.tools/login?code_challenge=jnXX8Augp1JmHvBecUEwvpcShPaGvPH-Tkz_9OTo620&session=2ffd6152-f5e4-43ff-a567-1e51f44fcb55&attest=5OalU8Ax4KJiNko9KOcAwPyjrZXmNVTqR3UCUm5vBJk
+[info] 
+[info] 3. Paste or enter the authorization code below once you have it:
+[info] 

@@ -15,7 +15,9 @@ export class HomeComponent implements OnInit {
 
   constructor(private mapService: DataMapService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 
   /**
    * function to handler the changes when choice a place
