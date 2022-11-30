@@ -24,7 +24,6 @@ export class PlacesSelectComponent implements OnInit {
   getDataFavorites() {
     this.places$ = this.favoritesServices.getFavorites().pipe(
       tap((data) => {
-        console.log('data bd', data);
         this.places = data;
       })
     );

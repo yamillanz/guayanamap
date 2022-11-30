@@ -1,7 +1,7 @@
 <select #place (change)="select_ciudad(this.place)" class="form-select" aria-label="Choice a favorite place"
     aria-placeholder="Choice a favorite place" style="width: 100%;">
     <option disabled selected>Choice a favorite place...</option>
-    <option *ngFor="let place of places$ |async" value="{{place.criteria}}">{{place.name}}</option>
+    <option *ngFor="let place of places$ | async" value="{{place.criteria}}">{{place.name}}</option>
 </select>
 <span class="visually-hidden-focusable">Choice a favorite place</span>
 <form class="d-flex mt-1">
