@@ -19,7 +19,6 @@ export class DataMapService {
     );
   }
   getInfoFromOverpass(criteria: string): Observable<any> {
-    // return this.http.get<Observable<any>>(environment.URL_OVERPASS + criteria + environment.ADDITIONAL_OVER).pipe(
     return this.http
       .get<Observable<any>>(environment.URL_OVERPASS + environment.FILTER_NODE + criteria + environment.ADDITIONAL_OVER)
       .pipe(
