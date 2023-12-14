@@ -13,9 +13,18 @@ export const environment = {
 
   URL_fAVORITES: 'https://mapguayana-default-rtdb.firebaseio.com/datos.json',
 
+  // firebaseConfig: {
+  //   apiKey: 'AIzaSyCJ6pkM9cODikmsXJeChi7hhwW7JlM382Y',
+  //   authDomain: 'mapguayana.firebaseapp.com',
+  //   projectId: 'mapguayana',
+  //   storageBucket: 'mapguayana.appspot.com',
+  //   messagingSenderId: '781773889460',
+  //   appId: '1:781773889460:web:04b8d02e235dd78ed75ce1',
+  // },
   firebaseConfig: {
     apiKey: 'AIzaSyCJ6pkM9cODikmsXJeChi7hhwW7JlM382Y',
     authDomain: 'mapguayana.firebaseapp.com',
+    databaseURL: 'https://mapguayana-default-rtdb.firebaseio.com',
     projectId: 'mapguayana',
     storageBucket: 'mapguayana.appspot.com',
     messagingSenderId: '781773889460',
