@@ -7,7 +7,6 @@ export const environment = {
 
   URL_NOMINATIM: 'https://nominatim.openstreetmap.org/search?q=',
   ADDITIONAL_PARAMS: '&format=json&polygon_geojson=1&addressdetails=1',
-
   FILTER_NODE: 'node[!"bus"][!"shop"][!"parking"]["name"~"',
   URL_OVERPASS: `https://z.overpass-api.de/api/interpreter?data=[out:json][timeout:60][out:json][bbox:8.069150, -63.177067, 8.625989, -62.448558];`,
   ADDITIONAL_OVER: `\", i];out body;`,

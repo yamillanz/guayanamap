@@ -25,6 +25,7 @@ export class DataMapService {
         first(),
         map((data: any) => {
           const cleanData = data['elements'][0];
+          // console.log('data', cleanData);
           return cleanData;
         })
       );

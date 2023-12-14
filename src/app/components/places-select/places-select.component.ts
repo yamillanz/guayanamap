@@ -42,8 +42,8 @@ export class PlacesSelectComponent implements OnInit {
       const place: string = favorite.value;
       favorite.value = '';
       const favoriteValid = await firstValueFrom(this.mapaService.getInfoFromOverpass(place));
-      // console.log('valido consulta', favoriteValid);
       if (favoriteValid) {
+        this.coorsSelected.emit(place);
         const newFavorite: Place = { name: place, criteria: place };
         this.places.push(newFavorite);
         this.favoritesServices.saveFavorites(this.places);
