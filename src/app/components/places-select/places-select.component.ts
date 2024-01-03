@@ -19,7 +19,7 @@ export class PlacesSelectComponent implements OnInit {
     private favoritesServices: FavoritesService,
     private mapaService: DataMapService,
     private cd: ChangeDetectorRef
-  ) {}
+  ) { }
 
   getDataFavorites() {
     this.places$ = this.favoritesServices.getFavorites().pipe(
